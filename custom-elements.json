@@ -1,0 +1,1018 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "oscd-editor-template-update.testfiles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "mmxuSelection",
+          "type": {
+            "text": "object"
+          },
+          "default": "{ Beh: { q: {}, stVal: { blocked: {}, on: {}, 'test/blocked': {}, }, t: {}, }, A: { phsA: { q: {}, t: {}, cVal: { mag: { f: {}, }, }, units: { SIUnit: { '': {}, '°C': {}, '1/s': {}, A: {}, 'A/V': {}, 'A/Vs': {}, 'A²': {}, 'A²t': {}, As: {}, Bq: {}, C: {}, cd: {}, char: {}, 'char/s': {}, 'cos(phi)': {}, dB: {}, dBm: {}, deg: {}, F: {}, Gy: {}, h: {}, H: {}, Hz: {}, 'Hz/s': {}, J: {}, 'J/K': {}, 'J/kg K': {}, 'J/m²': {}, 'J/Wh': {}, K: {}, 'K/s': {}, kg: {}, 'kg/m³': {}, 'kgm²': {}, 'l/s': {}, Lm: {}, lx: {}, m: {}, M: {}, 'm/m³': {}, 'm/s': {}, 'm/s²': {}, 'm²': {}, 'm²/s': {}, 'm³': {}, 'm³/s': {}, min: {}, mol: {}, N: {}, ohm: {}, 'Ohm/m': {}, Pa: {}, 'Pa/s': {}, 'percent/s': {}, phi: {}, ppm: {}, rad: {}, 'rad/s': {}, s: {}, S: {}, 'S/m': {}, sr: {}, Sv: {}, T: {}, V: {}, 'V/Hz': {}, 'V²': {}, VA: {}, VAh: {}, VAr: {}, VArh: {}, Vs: {}, W: {}, 'W/m K': {}, 'W/m²': {}, 'W/s': {}, Watts: {}, Wb: {}, Wh: {}, }, }, }, phsB: { q: {}, t: {}, cVal: { mag: { f: {}, }, }, }, }, }"
+        },
+        {
+          "kind": "variable",
+          "name": "lln0Selection",
+          "type": {
+            "text": "object"
+          },
+          "default": "{ Beh: { q: {}, stVal: { blocked: {}, off: {}, on: {}, test: {}, 'test/blocked': {}, }, t: {}, myStVal: { blocked: {}, off: {}, on: {}, test: {}, 'test/blocked': {}, }, }, Mod: { ctlModel: { 'direct-with-enhanced-security': {}, 'direct-with-normal-security': {}, 'sbo-with-enhanced-security': {}, 'status-only': {}, }, q: {}, stVal: { blocked: {}, off: {}, on: {}, test: {}, 'test/blocked': {}, }, t: {}, Cancel: { ctlNum: {}, ctlVal: {}, origin: { orCat: { 'automatic-bay': {}, 'automatic-remote': {}, 'automatic-station': {}, 'bay-control': {}, maintenance: {}, 'not-supported': {}, process: {}, 'remote-control': {}, 'station-control': {}, }, orIdent: {}, }, T: {}, Test: {}, }, SBOw: { Check: {}, ctlNum: {}, ctlVal: {}, origin: { orCat: { 'automatic-bay': {}, 'automatic-remote': {}, 'automatic-station': {}, 'bay-control': {}, maintenance: {}, 'not-supported': {}, 'remote-control': {}, 'station-control': {}, }, orIdent: {}, }, T: {}, Test: {}, }, Oper: { Check: {}, ctlNum: {}, ctlVal: {}, origin: { orCat: { 'automatic-bay': {}, 'automatic-remote': {}, 'automatic-station': {}, 'bay-control': {}, 'not-supported': {}, process: {}, 'remote-control': {}, 'station-control': {}, }, orIdent: {}, }, T: {}, Test: {}, }, }, }"
+        },
+        {
+          "kind": "variable",
+          "name": "mmxuExceptSelection",
+          "type": {
+            "text": "object"
+          },
+          "default": "{ Beh: { q: {}, stVal: { blocked: {}, on: {}, 'test/blocked': {}, }, t: {}, }, A: { phsA: { q: {}, t: {}, cVal: { mag: { f: {}, }, }, units: { SIUnit: { '': {}, '°C': {}, '1/s': {}, A: {}, 'A/V': {}, 'A/Vs': {}, 'A²': {}, 'A²t': {}, As: {}, Bq: {}, C: {}, cd: {}, char: {}, 'char/s': {}, 'cos(phi)': {}, dB: {}, dBm: {}, deg: {}, F: {}, Gy: {}, h: {}, H: {}, Hz: {}, 'Hz/s': {}, J: {}, 'J/K': {}, 'J/kg K': {}, 'J/m²': {}, 'J/Wh': {}, K: {}, 'K/s': {}, kg: {}, 'kg/m³': {}, 'kgm²': {}, 'l/s': {}, Lm: {}, lx: {}, m: {}, M: {}, 'm/m³': {}, 'm/s': {}, 'm/s²': {}, 'm²': {}, 'm²/s': {}, 'm³': {}, 'm³/s': {}, min: {}, mol: {}, N: {}, ohm: {}, 'Ohm/m': {}, Pa: {}, 'Pa/s': {}, 'percent/s': {}, phi: {}, ppm: {}, rad: {}, 'rad/s': {}, s: {}, S: {}, 'S/m': {}, sr: {}, Sv: {}, T: {}, V: {}, 'V/Hz': {}, 'V²': {}, VA: {}, VAh: {}, VAr: {}, VArh: {}, Vs: {}, W: {}, 'W/m K': {}, 'W/m²': {}, 'W/s': {}, Watts: {}, Wb: {}, Wh: {}, }, }, }, }, B: { phsA: { q: {}, t: {}, cVal: { mag: { f: {}, }, }, units: { SIUnit: { '': {}, '°C': {}, '1/s': {}, A: {}, 'A/V': {}, 'A/Vs': {}, 'A²': {}, 'A²t': {}, As: {}, Bq: {}, C: {}, cd: {}, char: {}, 'char/s': {}, 'cos(phi)': {}, dB: {}, dBm: {}, deg: {}, F: {}, Gy: {}, h: {}, H: {}, Hz: {}, 'Hz/s': {}, J: {}, 'J/K': {}, 'J/kg K': {}, 'J/m²': {}, 'J/Wh': {}, K: {}, 'K/s': {}, kg: {}, 'kg/m³': {}, 'kgm²': {}, 'l/s': {}, Lm: {}, lx: {}, m: {}, M: {}, 'm/m³': {}, 'm/s': {}, 'm/s²': {}, 'm²': {}, 'm²/s': {}, 'm³': {}, 'm³/s': {}, min: {}, mol: {}, N: {}, ohm: {}, 'Ohm/m': {}, Pa: {}, 'Pa/s': {}, 'percent/s': {}, phi: {}, ppm: {}, rad: {}, 'rad/s': {}, s: {}, S: {}, 'S/m': {}, sr: {}, Sv: {}, T: {}, V: {}, 'V/Hz': {}, 'V²': {}, VA: {}, VAh: {}, VAr: {}, VArh: {}, Vs: {}, W: {}, 'W/m K': {}, 'W/m²': {}, 'W/s': {}, Watts: {}, Wb: {}, Wh: {}, }, }, }, phsB: { q: {}, t: {}, cVal: { mag: { f: {}, }, }, }, }, }"
+        },
+        {
+          "kind": "variable",
+          "name": "nsdSpeced",
+          "default": "`<?xml version=\"1.0\" encoding=\"UTF-8\"?> <SCL xmlns=\"http://www.iec.ch/61850/2003/SCL\" version=\"2007\" revision=\"B\" release=\"4\"> <Header id=\"nsdSpeced\"/> <DataTypeTemplates> <LNodeType lnClass=\"MMXU\" id=\"MMXU$oscd$_c53e78191fabefa3\"> <DO name=\"Beh\" type=\"Beh$oscd$_c6ed035c8137b35a\"/> <DO name=\"A\" type=\"A$oscd$_41824603f63b26ac\"/> </LNodeType> <LNodeType lnClass=\"LLN0\" id=\"LLN0$oscd$_85c7ffbe25d80e63\"> <DO name=\"Beh\" type=\"Beh$oscd$_c6ed035c8137b35a\"/> <DO name=\"Mod\" type=\"Mod$oscd$_d63dba598ea9104c\"/> </LNodeType> <DOType cdc=\"WYE\" id=\"A$oscd$_41824603f63b26ac\"> <SDO name=\"phsA\" type=\"phsA$oscd$_995aad120f12c815\"/> </DOType> <DOType cdc=\"CMV\" id=\"phsA$oscd$_995aad120f12c815\"> <DA name=\"cVal\" fc=\"MX\" dchg=\"true\" dupd=\"true\" bType=\"Struct\" type=\"cVal$oscd$_80272042468595d1\"/> <DA name=\"q\" fc=\"MX\" qchg=\"true\" bType=\"Quality\"/> <DA name=\"t\" fc=\"MX\" bType=\"Timestamp\"/> <DA name=\"units\" fc=\"CF\" dchg=\"true\" bType=\"Struct\" type=\"units$oscd$_3f2e10def85bfeac\"/> </DOType> <DOType cdc=\"ENC\" id=\"Mod$oscd$_d63dba598ea9104c\"> <DA name=\"stVal\" fc=\"ST\" dchg=\"true\" bType=\"Enum\" type=\"stVal$oscd$_48ba16345b8e7f5b\"/> <DA name=\"q\" fc=\"ST\" qchg=\"true\" bType=\"Quality\"/> <DA name=\"t\" fc=\"ST\" bType=\"Timestamp\"/> <DA name=\"ctlModel\" fc=\"CF\" dchg=\"true\" bType=\"Enum\" type=\"ctlModel$oscd$_f80264355419aeff\"/> <DA name=\"SBOw\" fc=\"CO\" bType=\"Struct\" type=\"SBOw$oscd$_4974a5c5ec541314\"/> <DA name=\"Oper\" fc=\"CO\" bType=\"Struct\" type=\"Oper$oscd$_4974a5c5ec541314\"/> <DA name=\"Cancel\" fc=\"CO\" bType=\"Struct\" type=\"Cancel$oscd$_6e700f5931430856\"/> </DOType> <DOType cdc=\"ENS\" id=\"Beh$oscd$_c6ed035c8137b35a\"> <DA name=\"stVal\" fc=\"ST\" dchg=\"true\" dupd=\"true\" bType=\"Enum\" type=\"stVal$oscd$_48ba16345b8e7f5b\"/> <DA name=\"q\" fc=\"ST\" qchg=\"true\" bType=\"Quality\"/> <DA name=\"t\" fc=\"ST\" bType=\"Timestamp\"/> </DOType> <DAType id=\"units$oscd$_3f2e10def85bfeac\"> <BDA name=\"SIUnit\" bType=\"Enum\" type=\"SIUnit$oscd$_39f6ca400c633081\"/> </DAType> <DAType id=\"cVal$oscd$_80272042468595d1\"> <BDA name=\"mag\" bType=\"Struct\" type=\"mag$oscd$_ed49c2f7a55ad05a\"/> </DAType> <DAType id=\"mag$oscd$_ed49c2f7a55ad05a\"> <BDA name=\"f\" bType=\"FLOAT32\"/> </DAType> <DAType id=\"Cancel$oscd$_6e700f5931430856\"> <BDA name=\"ctlVal\" bType=\"Enum\" type=\"stVal$oscd$_48ba16345b8e7f5b\"/> <BDA name=\"origin\" bType=\"Struct\" type=\"origin$oscd$_cfc683368475eafc\"/> <BDA name=\"ctlNum\" bType=\"INT8U\"/> <BDA name=\"T\" bType=\"Timestamp\"/> <BDA name=\"Test\" bType=\"BOOLEAN\"/> </DAType> <DAType id=\"Oper$oscd$_4974a5c5ec541314\"> <BDA name=\"ctlVal\" bType=\"Enum\" type=\"stVal$oscd$_48ba16345b8e7f5b\"/> <BDA name=\"origin\" bType=\"Struct\" type=\"origin$oscd$_cfc683368475eafc\"/> <BDA name=\"ctlNum\" bType=\"INT8U\"/> <BDA name=\"T\" bType=\"Timestamp\"/> <BDA name=\"Test\" bType=\"BOOLEAN\"/> <BDA name=\"Check\" bType=\"Check\"/> </DAType> <DAType id=\"SBOw$oscd$_4974a5c5ec541314\"> <BDA name=\"ctlVal\" bType=\"Enum\" type=\"stVal$oscd$_48ba16345b8e7f5b\"/> <BDA name=\"origin\" bType=\"Struct\" type=\"origin$oscd$_cfc683368475eafc\"/> <BDA name=\"ctlNum\" bType=\"INT8U\"/> <BDA name=\"T\" bType=\"Timestamp\"/> <BDA name=\"Test\" bType=\"BOOLEAN\"/> <BDA name=\"Check\" bType=\"Check\"/> </DAType> <DAType id=\"origin$oscd$_cfc683368475eafc\"> <BDA name=\"orCat\" bType=\"Enum\" type=\"orCat$oscd$_711cd9acd4dad897\"/> <BDA name=\"orIdent\" bType=\"Octet64\"/> </DAType> <EnumType id=\"SIUnit$oscd$_39f6ca400c633081\"> <EnumVal ord=\"1\"></EnumVal> <EnumVal ord=\"2\">m</EnumVal> <EnumVal ord=\"3\">kg</EnumVal> <EnumVal ord=\"4\">s</EnumVal> <EnumVal ord=\"5\">A</EnumVal> <EnumVal ord=\"6\">K</EnumVal> <EnumVal ord=\"7\">mol</EnumVal> <EnumVal ord=\"8\">cd</EnumVal> <EnumVal ord=\"9\">deg</EnumVal> <EnumVal ord=\"10\">rad</EnumVal> <EnumVal ord=\"11\">sr</EnumVal> <EnumVal ord=\"21\">Gy</EnumVal> <EnumVal ord=\"22\">Bq</EnumVal> <EnumVal ord=\"23\">°C</EnumVal> <EnumVal ord=\"24\">Sv</EnumVal> <EnumVal ord=\"25\">F</EnumVal> <EnumVal ord=\"26\">C</EnumVal> <EnumVal ord=\"27\">S</EnumVal> <EnumVal ord=\"28\">H</EnumVal> <EnumVal ord=\"29\">V</EnumVal> <EnumVal ord=\"30\">ohm</EnumVal> <EnumVal ord=\"31\">J</EnumVal> <EnumVal ord=\"32\">N</EnumVal> <EnumVal ord=\"33\">Hz</EnumVal> <EnumVal ord=\"34\">lx</EnumVal> <EnumVal ord=\"35\">Lm</EnumVal> <EnumVal ord=\"36\">Wb</EnumVal> <EnumVal ord=\"37\">T</EnumVal> <EnumVal ord=\"38\">W</EnumVal> <EnumVal ord=\"39\">Pa</EnumVal> <EnumVal ord=\"41\">m²</EnumVal> <EnumVal ord=\"42\">m³</EnumVal> <EnumVal ord=\"43\">m/s</EnumVal> <EnumVal ord=\"44\">m/s²</EnumVal> <EnumVal ord=\"45\">m³/s</EnumVal> <EnumVal ord=\"46\">m/m³</EnumVal> <EnumVal ord=\"47\">M</EnumVal> <EnumVal ord=\"48\">kg/m³</EnumVal> <EnumVal ord=\"49\">m²/s</EnumVal> <EnumVal ord=\"50\">W/m K</EnumVal> <EnumVal ord=\"51\">J/K</EnumVal> <EnumVal ord=\"52\">ppm</EnumVal> <EnumVal ord=\"53\">1/s</EnumVal> <EnumVal ord=\"54\">rad/s</EnumVal> <EnumVal ord=\"55\">W/m²</EnumVal> <EnumVal ord=\"56\">J/m²</EnumVal> <EnumVal ord=\"57\">S/m</EnumVal> <EnumVal ord=\"58\">K/s</EnumVal> <EnumVal ord=\"59\">Pa/s</EnumVal> <EnumVal ord=\"60\">J/kg K</EnumVal> <EnumVal ord=\"61\">VA</EnumVal> <EnumVal ord=\"62\">Watts</EnumVal> <EnumVal ord=\"63\">VAr</EnumVal> <EnumVal ord=\"64\">phi</EnumVal> <EnumVal ord=\"65\">cos(phi)</EnumVal> <EnumVal ord=\"66\">Vs</EnumVal> <EnumVal ord=\"67\">V²</EnumVal> <EnumVal ord=\"68\">As</EnumVal> <EnumVal ord=\"69\">A²</EnumVal> <EnumVal ord=\"70\">A²t</EnumVal> <EnumVal ord=\"71\">VAh</EnumVal> <EnumVal ord=\"72\">Wh</EnumVal> <EnumVal ord=\"73\">VArh</EnumVal> <EnumVal ord=\"74\">V/Hz</EnumVal> <EnumVal ord=\"75\">Hz/s</EnumVal> <EnumVal ord=\"76\">char</EnumVal> <EnumVal ord=\"77\">char/s</EnumVal> <EnumVal ord=\"78\">kgm²</EnumVal> <EnumVal ord=\"79\">dB</EnumVal> <EnumVal ord=\"80\">J/Wh</EnumVal> <EnumVal ord=\"81\">W/s</EnumVal> <EnumVal ord=\"82\">l/s</EnumVal> <EnumVal ord=\"83\">dBm</EnumVal> <EnumVal ord=\"84\">h</EnumVal> <EnumVal ord=\"85\">min</EnumVal> <EnumVal ord=\"86\">Ohm/m</EnumVal> <EnumVal ord=\"87\">percent/s</EnumVal> <EnumVal ord=\"88\">A/V</EnumVal> <EnumVal ord=\"89\">A/Vs</EnumVal> </EnumType> <EnumType id=\"orCat$oscd$_711cd9acd4dad897\"> <EnumVal ord=\"0\">not-supported</EnumVal> <EnumVal ord=\"1\">bay-control</EnumVal> <EnumVal ord=\"2\">station-control</EnumVal> <EnumVal ord=\"3\">remote-control</EnumVal> <EnumVal ord=\"4\">automatic-bay</EnumVal> <EnumVal ord=\"5\">automatic-station</EnumVal> <EnumVal ord=\"6\">automatic-remote</EnumVal> <EnumVal ord=\"7\">maintenance</EnumVal> <EnumVal ord=\"8\">process</EnumVal> </EnumType> <EnumType id=\"ctlModel$oscd$_f80264355419aeff\"> <EnumVal ord=\"0\">status-only</EnumVal> <EnumVal ord=\"1\">direct-with-normal-security</EnumVal> <EnumVal ord=\"2\">sbo-with-normal-security</EnumVal> <EnumVal ord=\"3\">direct-with-enhanced-security</EnumVal> <EnumVal ord=\"4\">sbo-with-enhanced-security</EnumVal> </EnumType> <EnumType id=\"stVal$oscd$_48ba16345b8e7f5b\"> <EnumVal ord=\"1\">on</EnumVal> <EnumVal ord=\"2\">blocked</EnumVal> <EnumVal ord=\"3\">test</EnumVal> <EnumVal ord=\"4\">test/blocked</EnumVal> <EnumVal ord=\"5\">off</EnumVal> </EnumType> </DataTypeTemplates> </SCL>`"
+        },
+        {
+          "kind": "variable",
+          "name": "extension",
+          "default": "`<?xml version=\"1.0\" encoding=\"UTF-8\"?> <SCL xmlns=\"http://www.iec.ch/61850/2003/SCL\" version=\"2007\" revision=\"B\" release=\"4\"> <Header id=\"extension\"/> <Substation name=\"AA1\"> <LNode lnType=\"LLN0$oscd$_85c7ffbe25d80e63\"/> </Substation> <DataTypeTemplates> <LNodeType lnClass=\"UDER\" id=\"invalidLnClass\" /> <LNodeType lnClass=\"MMXU\" id=\"MMXU$oscd$_c53e78191fabefa3\"> <DO name=\"Beh\" type=\"Beh$oscd$_c6ed035c8137b35a\"/> <DO name=\"A\" type=\"A$oscd$_41824603f63b26ac\"/> <DO name=\"B\" type=\"A$oscd$_41824603f63b26ac\"/> </LNodeType> <LNodeType lnClass=\"LLN0\" id=\"LLN0$oscd$_85c7ffbe25d80e63\"> <DO name=\"Beh\" type=\"Beh$oscd$_c6ed035c8137b35a\"/> <DO name=\"Mod\" type=\"Mod$oscd$_d63dba598ea9104c\"/> </LNodeType> <DOType cdc=\"WYE\" id=\"A$oscd$_41824603f63b26ac\"> <SDO name=\"phsA\" type=\"phsA$oscd$_995aad120f12c815\"/> </DOType> <DOType cdc=\"CMV\" id=\"phsA$oscd$_995aad120f12c815\"> <DA name=\"cVal\" fc=\"MX\" dchg=\"true\" dupd=\"true\" bType=\"Struct\" type=\"cVal$oscd$_80272042468595d1\"/> <DA name=\"q\" fc=\"MX\" qchg=\"true\" bType=\"Quality\"/> <DA name=\"t\" fc=\"MX\" bType=\"Timestamp\"/> <DA name=\"units\" fc=\"CF\" dchg=\"true\" bType=\"Struct\" type=\"units$oscd$_3f2e10def85bfeac\"/> </DOType> <DOType cdc=\"ENC\" id=\"Mod$oscd$_d63dba598ea9104c\"> <DA name=\"stVal\" fc=\"ST\" dchg=\"true\" bType=\"Enum\" type=\"stVal$oscd$_48ba16345b8e7f5b\"/> <DA name=\"q\" fc=\"ST\" qchg=\"true\" bType=\"Quality\"/> <DA name=\"t\" fc=\"ST\" bType=\"Timestamp\"/> <DA name=\"ctlModel\" fc=\"CF\" dchg=\"true\" bType=\"Enum\" type=\"ctlModel$oscd$_f80264355419aeff\"/> <DA name=\"SBOw\" fc=\"CO\" bType=\"Struct\" type=\"SBOw$oscd$_4974a5c5ec541314\"/> <DA name=\"Oper\" fc=\"CO\" bType=\"Struct\" type=\"Oper$oscd$_4974a5c5ec541314\"/> <DA name=\"Cancel\" fc=\"CO\" bType=\"Struct\" type=\"Cancel$oscd$_6e700f5931430856\"/> </DOType> <DOType cdc=\"ENS\" id=\"Beh$oscd$_c6ed035c8137b35a\"> <DA name=\"stVal\" fc=\"ST\" dchg=\"true\" dupd=\"true\" bType=\"Enum\" type=\"stVal$oscd$_48ba16345b8e7f5b\"/> <DA name=\"q\" fc=\"ST\" qchg=\"true\" bType=\"Quality\"/> <DA name=\"t\" fc=\"ST\" bType=\"Timestamp\"/> </DOType> <DAType id=\"units$oscd$_3f2e10def85bfeac\"> <BDA name=\"SIUnit\" bType=\"Enum\" type=\"SIUnit$oscd$_39f6ca400c633081\"/> </DAType> <DAType id=\"cVal$oscd$_80272042468595d1\"> <BDA name=\"mag\" bType=\"Struct\" type=\"mag$oscd$_ed49c2f7a55ad05a\"/> </DAType> <DAType id=\"mag$oscd$_ed49c2f7a55ad05a\"> <BDA name=\"f\" bType=\"FLOAT32\"/> </DAType> <DAType id=\"Cancel$oscd$_6e700f5931430856\"> <BDA name=\"ctlVal\" bType=\"Enum\" type=\"stVal$oscd$_48ba16345b8e7f5b\"/> <BDA name=\"origin\" bType=\"Struct\" type=\"origin$oscd$_cfc683368475eafc\"/> <BDA name=\"ctlNum\" bType=\"INT8U\"/> <BDA name=\"T\" bType=\"Timestamp\"/> <BDA name=\"Test\" bType=\"BOOLEAN\"/> </DAType> <DAType id=\"Oper$oscd$_4974a5c5ec541314\"> <BDA name=\"ctlVal\" bType=\"Enum\" type=\"stVal$oscd$_48ba16345b8e7f5b\"/> <BDA name=\"origin\" bType=\"Struct\" type=\"origin$oscd$_cfc683368475eafc\"/> <BDA name=\"ctlNum\" bType=\"INT8U\"/> <BDA name=\"T\" bType=\"Timestamp\"/> <BDA name=\"Test\" bType=\"BOOLEAN\"/> <BDA name=\"Check\" bType=\"Check\"/> </DAType> <DAType id=\"SBOw$oscd$_4974a5c5ec541314\"> <BDA name=\"ctlVal\" bType=\"Enum\" type=\"stVal$oscd$_48ba16345b8e7f5b\"/> <BDA name=\"origin\" bType=\"Struct\" type=\"origin$oscd$_cfc683368475eafc\"/> <BDA name=\"ctlNum\" bType=\"INT8U\"/> <BDA name=\"T\" bType=\"Timestamp\"/> <BDA name=\"Test\" bType=\"BOOLEAN\"/> <BDA name=\"Check\" bType=\"Check\"/> </DAType> <DAType id=\"origin$oscd$_cfc683368475eafc\"> <BDA name=\"orCat\" bType=\"Enum\" type=\"orCat$oscd$_711cd9acd4dad897\"/> <BDA name=\"orIdent\" bType=\"Octet64\"/> </DAType> <EnumType id=\"SIUnit$oscd$_39f6ca400c633081\"> <EnumVal ord=\"1\"></EnumVal> <EnumVal ord=\"2\">m</EnumVal> <EnumVal ord=\"3\">kg</EnumVal> <EnumVal ord=\"4\">s</EnumVal> <EnumVal ord=\"5\">A</EnumVal> <EnumVal ord=\"6\">K</EnumVal> <EnumVal ord=\"7\">mol</EnumVal> <EnumVal ord=\"8\">cd</EnumVal> <EnumVal ord=\"9\">deg</EnumVal> <EnumVal ord=\"10\">rad</EnumVal> <EnumVal ord=\"11\">sr</EnumVal> <EnumVal ord=\"21\">Gy</EnumVal> <EnumVal ord=\"22\">Bq</EnumVal> <EnumVal ord=\"23\">°C</EnumVal> <EnumVal ord=\"24\">Sv</EnumVal> <EnumVal ord=\"25\">F</EnumVal> <EnumVal ord=\"26\">C</EnumVal> <EnumVal ord=\"27\">S</EnumVal> <EnumVal ord=\"28\">H</EnumVal> <EnumVal ord=\"29\">V</EnumVal> <EnumVal ord=\"30\">ohm</EnumVal> <EnumVal ord=\"31\">J</EnumVal> <EnumVal ord=\"32\">N</EnumVal> <EnumVal ord=\"33\">Hz</EnumVal> <EnumVal ord=\"34\">lx</EnumVal> <EnumVal ord=\"35\">Lm</EnumVal> <EnumVal ord=\"36\">Wb</EnumVal> <EnumVal ord=\"37\">T</EnumVal> <EnumVal ord=\"38\">W</EnumVal> <EnumVal ord=\"39\">Pa</EnumVal> <EnumVal ord=\"41\">m²</EnumVal> <EnumVal ord=\"42\">m³</EnumVal> <EnumVal ord=\"43\">m/s</EnumVal> <EnumVal ord=\"44\">m/s²</EnumVal> <EnumVal ord=\"45\">m³/s</EnumVal> <EnumVal ord=\"46\">m/m³</EnumVal> <EnumVal ord=\"47\">M</EnumVal> <EnumVal ord=\"48\">kg/m³</EnumVal> <EnumVal ord=\"49\">m²/s</EnumVal> <EnumVal ord=\"50\">W/m K</EnumVal> <EnumVal ord=\"51\">J/K</EnumVal> <EnumVal ord=\"52\">ppm</EnumVal> <EnumVal ord=\"53\">1/s</EnumVal> <EnumVal ord=\"54\">rad/s</EnumVal> <EnumVal ord=\"55\">W/m²</EnumVal> <EnumVal ord=\"56\">J/m²</EnumVal> <EnumVal ord=\"57\">S/m</EnumVal> <EnumVal ord=\"58\">K/s</EnumVal> <EnumVal ord=\"59\">Pa/s</EnumVal> <EnumVal ord=\"60\">J/kg K</EnumVal> <EnumVal ord=\"61\">VA</EnumVal> <EnumVal ord=\"62\">Watts</EnumVal> <EnumVal ord=\"63\">VAr</EnumVal> <EnumVal ord=\"64\">phi</EnumVal> <EnumVal ord=\"65\">cos(phi)</EnumVal> <EnumVal ord=\"66\">Vs</EnumVal> <EnumVal ord=\"67\">V²</EnumVal> <EnumVal ord=\"68\">As</EnumVal> <EnumVal ord=\"69\">A²</EnumVal> <EnumVal ord=\"70\">A²t</EnumVal> <EnumVal ord=\"71\">VAh</EnumVal> <EnumVal ord=\"72\">Wh</EnumVal> <EnumVal ord=\"73\">VArh</EnumVal> <EnumVal ord=\"74\">V/Hz</EnumVal> <EnumVal ord=\"75\">Hz/s</EnumVal> <EnumVal ord=\"76\">char</EnumVal> <EnumVal ord=\"77\">char/s</EnumVal> <EnumVal ord=\"78\">kgm²</EnumVal> <EnumVal ord=\"79\">dB</EnumVal> <EnumVal ord=\"80\">J/Wh</EnumVal> <EnumVal ord=\"81\">W/s</EnumVal> <EnumVal ord=\"82\">l/s</EnumVal> <EnumVal ord=\"83\">dBm</EnumVal> <EnumVal ord=\"84\">h</EnumVal> <EnumVal ord=\"85\">min</EnumVal> <EnumVal ord=\"86\">Ohm/m</EnumVal> <EnumVal ord=\"87\">percent/s</EnumVal> <EnumVal ord=\"88\">A/V</EnumVal> <EnumVal ord=\"89\">A/Vs</EnumVal> </EnumType> <EnumType id=\"orCat$oscd$_711cd9acd4dad897\"> <EnumVal ord=\"0\">not-supported</EnumVal> <EnumVal ord=\"1\">bay-control</EnumVal> <EnumVal ord=\"2\">station-control</EnumVal> <EnumVal ord=\"3\">remote-control</EnumVal> <EnumVal ord=\"4\">automatic-bay</EnumVal> <EnumVal ord=\"5\">automatic-station</EnumVal> <EnumVal ord=\"6\">automatic-remote</EnumVal> <EnumVal ord=\"7\">maintenance</EnumVal> <EnumVal ord=\"8\">process</EnumVal> </EnumType> <EnumType id=\"ctlModel$oscd$_f80264355419aeff\"> <EnumVal ord=\"0\">status-only</EnumVal> <EnumVal ord=\"1\">direct-with-normal-security</EnumVal> <EnumVal ord=\"2\">sbo-with-normal-security</EnumVal> <EnumVal ord=\"3\">direct-with-enhanced-security</EnumVal> <EnumVal ord=\"4\">sbo-with-enhanced-security</EnumVal> </EnumType> <EnumType id=\"stVal$oscd$_48ba16345b8e7f5b\"> <EnumVal ord=\"1\">on</EnumVal> <EnumVal ord=\"2\">blocked</EnumVal> <EnumVal ord=\"3\">test</EnumVal> <EnumVal ord=\"4\">test/blocked</EnumVal> <EnumVal ord=\"5\">off</EnumVal> </EnumType> </DataTypeTemplates> </SCL>`"
+        },
+        {
+          "kind": "variable",
+          "name": "customDataObjectInvalidCDC",
+          "default": "`<?xml version=\"1.0\" encoding=\"UTF-8\"?> <SCL xmlns=\"http://www.iec.ch/61850/2003/SCL\" version=\"2007\" revision=\"B\" release=\"4\"> <Header id=\"customDataObjectInvalidCDC\"/> <Substation name=\"AA1\"> <LNode lnType=\"LLN0$oscd$_85c7ffbe25d80e63\"/> </Substation> <DataTypeTemplates> <LNodeType lnClass=\"UDER\" id=\"invalidLnClass\" /> <LNodeType lnClass=\"MMXU\" id=\"MMXU$oscd$_c53e78191fabefa3\"> <DO name=\"Beh\" type=\"Beh$oscd$_c6ed035c8137b35a\"/> <DO name=\"A\" type=\"A$oscd$_41824603f63b26ac\"/> <DO name=\"B\" type=\"A$oscd$_41824603f63b26ac\"/> <DO name=\"C\" type=\"C$oscd$_invalid\" /> </LNodeType> <LNodeType lnClass=\"LLN0\" id=\"LLN0$oscd$_85c7ffbe25d80e63\"> <DO name=\"Beh\" type=\"Beh$oscd$_c6ed035c8137b35a\"/> <DO name=\"Mod\" type=\"Mod$oscd$_d63dba598ea9104c\"/> </LNodeType> <DOType cdc=\"WYE\" id=\"A$oscd$_41824603f63b26ac\"> <SDO name=\"phsA\" type=\"phsA$oscd$_995aad120f12c815\"/> </DOType> <DOType cdc=\"CMV\" id=\"phsA$oscd$_995aad120f12c815\"> <DA name=\"cVal\" fc=\"MX\" dchg=\"true\" dupd=\"true\" bType=\"Struct\" type=\"cVal$oscd$_80272042468595d1\"/> <DA name=\"q\" fc=\"MX\" qchg=\"true\" bType=\"Quality\"/> <DA name=\"t\" fc=\"MX\" bType=\"Timestamp\"/> <DA name=\"units\" fc=\"CF\" dchg=\"true\" bType=\"Struct\" type=\"units$oscd$_3f2e10def85bfeac\"/> </DOType> <DOType cdc=\"ENC\" id=\"Mod$oscd$_d63dba598ea9104c\"> <DA name=\"stVal\" fc=\"ST\" dchg=\"true\" bType=\"Enum\" type=\"stVal$oscd$_48ba16345b8e7f5b\"/> <DA name=\"q\" fc=\"ST\" qchg=\"true\" bType=\"Quality\"/> <DA name=\"t\" fc=\"ST\" bType=\"Timestamp\"/> <DA name=\"ctlModel\" fc=\"CF\" dchg=\"true\" bType=\"Enum\" type=\"ctlModel$oscd$_f80264355419aeff\"/> <DA name=\"SBOw\" fc=\"CO\" bType=\"Struct\" type=\"SBOw$oscd$_4974a5c5ec541314\"/> <DA name=\"Oper\" fc=\"CO\" bType=\"Struct\" type=\"Oper$oscd$_4974a5c5ec541314\"/> <DA name=\"Cancel\" fc=\"CO\" bType=\"Struct\" type=\"Cancel$oscd$_6e700f5931430856\"/> </DOType> <DOType cdc=\"ENS\" id=\"Beh$oscd$_c6ed035c8137b35a\"> <DA name=\"stVal\" fc=\"ST\" dchg=\"true\" dupd=\"true\" bType=\"Enum\" type=\"stVal$oscd$_48ba16345b8e7f5b\"/> <DA name=\"q\" fc=\"ST\" qchg=\"true\" bType=\"Quality\"/> <DA name=\"t\" fc=\"ST\" bType=\"Timestamp\"/> </DOType> <DOType cdc=\"invalid\" id=\"C$oscd$_invalid\"> <DA name=\"q\" fc=\"ST\" qchg=\"true\" bType=\"Quality\"/> <DA name=\"t\" fc=\"ST\" bType=\"Timestamp\"/> <DAType id=\"units$oscd$_3f2e10def85bfeac\"> <BDA name=\"SIUnit\" bType=\"Enum\" type=\"SIUnit$oscd$_39f6ca400c633081\"/> </DAType> <DAType id=\"cVal$oscd$_80272042468595d1\"> <BDA name=\"mag\" bType=\"Struct\" type=\"mag$oscd$_ed49c2f7a55ad05a\"/> </DAType> <DAType id=\"mag$oscd$_ed49c2f7a55ad05a\"> <BDA name=\"f\" bType=\"FLOAT32\"/> </DAType> <DAType id=\"Cancel$oscd$_6e700f5931430856\"> <BDA name=\"ctlVal\" bType=\"Enum\" type=\"stVal$oscd$_48ba16345b8e7f5b\"/> <BDA name=\"origin\" bType=\"Struct\" type=\"origin$oscd$_cfc683368475eafc\"/> <BDA name=\"ctlNum\" bType=\"INT8U\"/> <BDA name=\"T\" bType=\"Timestamp\"/> <BDA name=\"Test\" bType=\"BOOLEAN\"/> </DAType> <DAType id=\"Oper$oscd$_4974a5c5ec541314\"> <BDA name=\"ctlVal\" bType=\"Enum\" type=\"stVal$oscd$_48ba16345b8e7f5b\"/> <BDA name=\"origin\" bType=\"Struct\" type=\"origin$oscd$_cfc683368475eafc\"/> <BDA name=\"ctlNum\" bType=\"INT8U\"/> <BDA name=\"T\" bType=\"Timestamp\"/> <BDA name=\"Test\" bType=\"BOOLEAN\"/> <BDA name=\"Check\" bType=\"Check\"/> </DAType> <DAType id=\"SBOw$oscd$_4974a5c5ec541314\"> <BDA name=\"ctlVal\" bType=\"Enum\" type=\"stVal$oscd$_48ba16345b8e7f5b\"/> <BDA name=\"origin\" bType=\"Struct\" type=\"origin$oscd$_cfc683368475eafc\"/> <BDA name=\"ctlNum\" bType=\"INT8U\"/> <BDA name=\"T\" bType=\"Timestamp\"/> <BDA name=\"Test\" bType=\"BOOLEAN\"/> <BDA name=\"Check\" bType=\"Check\"/> </DAType> <DAType id=\"origin$oscd$_cfc683368475eafc\"> <BDA name=\"orCat\" bType=\"Enum\" type=\"orCat$oscd$_711cd9acd4dad897\"/> <BDA name=\"orIdent\" bType=\"Octet64\"/> </DAType> <EnumType id=\"SIUnit$oscd$_39f6ca400c633081\"> <EnumVal ord=\"1\"></EnumVal> <EnumVal ord=\"2\">m</EnumVal> <EnumVal ord=\"3\">kg</EnumVal> <EnumVal ord=\"4\">s</EnumVal> <EnumVal ord=\"5\">A</EnumVal> <EnumVal ord=\"6\">K</EnumVal> <EnumVal ord=\"7\">mol</EnumVal> <EnumVal ord=\"8\">cd</EnumVal> <EnumVal ord=\"9\">deg</EnumVal> <EnumVal ord=\"10\">rad</EnumVal> <EnumVal ord=\"11\">sr</EnumVal> <EnumVal ord=\"21\">Gy</EnumVal> <EnumVal ord=\"22\">Bq</EnumVal> <EnumVal ord=\"23\">°C</EnumVal> <EnumVal ord=\"24\">Sv</EnumVal> <EnumVal ord=\"25\">F</EnumVal> <EnumVal ord=\"26\">C</EnumVal> <EnumVal ord=\"27\">S</EnumVal> <EnumVal ord=\"28\">H</EnumVal> <EnumVal ord=\"29\">V</EnumVal> <EnumVal ord=\"30\">ohm</EnumVal> <EnumVal ord=\"31\">J</EnumVal> <EnumVal ord=\"32\">N</EnumVal> <EnumVal ord=\"33\">Hz</EnumVal> <EnumVal ord=\"34\">lx</EnumVal> <EnumVal ord=\"35\">Lm</EnumVal> <EnumVal ord=\"36\">Wb</EnumVal> <EnumVal ord=\"37\">T</EnumVal> <EnumVal ord=\"38\">W</EnumVal> <EnumVal ord=\"39\">Pa</EnumVal> <EnumVal ord=\"41\">m²</EnumVal> <EnumVal ord=\"42\">m³</EnumVal> <EnumVal ord=\"43\">m/s</EnumVal> <EnumVal ord=\"44\">m/s²</EnumVal> <EnumVal ord=\"45\">m³/s</EnumVal> <EnumVal ord=\"46\">m/m³</EnumVal> <EnumVal ord=\"47\">M</EnumVal> <EnumVal ord=\"48\">kg/m³</EnumVal> <EnumVal ord=\"49\">m²/s</EnumVal> <EnumVal ord=\"50\">W/m K</EnumVal> <EnumVal ord=\"51\">J/K</EnumVal> <EnumVal ord=\"52\">ppm</EnumVal> <EnumVal ord=\"53\">1/s</EnumVal> <EnumVal ord=\"54\">rad/s</EnumVal> <EnumVal ord=\"55\">W/m²</EnumVal> <EnumVal ord=\"56\">J/m²</EnumVal> <EnumVal ord=\"57\">S/m</EnumVal> <EnumVal ord=\"58\">K/s</EnumVal> <EnumVal ord=\"59\">Pa/s</EnumVal> <EnumVal ord=\"60\">J/kg K</EnumVal> <EnumVal ord=\"61\">VA</EnumVal> <EnumVal ord=\"62\">Watts</EnumVal> <EnumVal ord=\"63\">VAr</EnumVal> <EnumVal ord=\"64\">phi</EnumVal> <EnumVal ord=\"65\">cos(phi)</EnumVal> <EnumVal ord=\"66\">Vs</EnumVal> <EnumVal ord=\"67\">V²</EnumVal> <EnumVal ord=\"68\">As</EnumVal> <EnumVal ord=\"69\">A²</EnumVal> <EnumVal ord=\"70\">A²t</EnumVal> <EnumVal ord=\"71\">VAh</EnumVal> <EnumVal ord=\"72\">Wh</EnumVal> <EnumVal ord=\"73\">VArh</EnumVal> <EnumVal ord=\"74\">V/Hz</EnumVal> <EnumVal ord=\"75\">Hz/s</EnumVal> <EnumVal ord=\"76\">char</EnumVal> <EnumVal ord=\"77\">char/s</EnumVal> <EnumVal ord=\"78\">kgm²</EnumVal> <EnumVal ord=\"79\">dB</EnumVal> <EnumVal ord=\"80\">J/Wh</EnumVal> <EnumVal ord=\"81\">W/s</EnumVal> <EnumVal ord=\"82\">l/s</EnumVal> <EnumVal ord=\"83\">dBm</EnumVal> <EnumVal ord=\"84\">h</EnumVal> <EnumVal ord=\"85\">min</EnumVal> <EnumVal ord=\"86\">Ohm/m</EnumVal> <EnumVal ord=\"87\">percent/s</EnumVal> <EnumVal ord=\"88\">A/V</EnumVal> <EnumVal ord=\"89\">A/Vs</EnumVal> </EnumType> <EnumType id=\"orCat$oscd$_711cd9acd4dad897\"> <EnumVal ord=\"0\">not-supported</EnumVal> <EnumVal ord=\"1\">bay-control</EnumVal> <EnumVal ord=\"2\">station-control</EnumVal> <EnumVal ord=\"3\">remote-control</EnumVal> <EnumVal ord=\"4\">automatic-bay</EnumVal> <EnumVal ord=\"5\">automatic-station</EnumVal> <EnumVal ord=\"6\">automatic-remote</EnumVal> <EnumVal ord=\"7\">maintenance</EnumVal> <EnumVal ord=\"8\">process</EnumVal> </EnumType> <EnumType id=\"ctlModel$oscd$_f80264355419aeff\"> <EnumVal ord=\"0\">status-only</EnumVal> <EnumVal ord=\"1\">direct-with-normal-security</EnumVal> <EnumVal ord=\"2\">sbo-with-normal-security</EnumVal> <EnumVal ord=\"3\">direct-with-enhanced-security</EnumVal> <EnumVal ord=\"4\">sbo-with-enhanced-security</EnumVal> </EnumType> <EnumType id=\"stVal$oscd$_48ba16345b8e7f5b\"> <EnumVal ord=\"1\">on</EnumVal> <EnumVal ord=\"2\">blocked</EnumVal> <EnumVal ord=\"3\">test</EnumVal> <EnumVal ord=\"4\">test/blocked</EnumVal> <EnumVal ord=\"5\">off</EnumVal> </EnumType> </DataTypeTemplates> </SCL>`"
+        },
+        {
+          "kind": "variable",
+          "name": "testLNodeTypesXml",
+          "default": "`<?xml version=\"1.0\" encoding=\"UTF-8\"?> <SCL xmlns=\"http://www.iec.ch/61850/2003/SCL\" version=\"2007\" revision=\"B\" release=\"4\"> <Header id=\"testLNodeTypes\"/> <DataTypeTemplates> <LNodeType lnClass=\"MMXU\" id=\"foo\"> <DO name=\"Beh\" type=\"BehType\"/> </LNodeType> <LNodeType lnClass=\"MMXU\" id=\"bar\" desc=\"desc2 baz\"> <DO name=\"Beh\" type=\"BehType\"/> </LNodeType> <LNodeType lnClass=\"MMXU\" id=\"baz\" desc=\"desc3\"> <DO name=\"Beh\" type=\"BehType\"/> </LNodeType> <LNodeType lnClass=\"MMXU\" id=\"foobar\" desc=\"desc4\"> <DO name=\"Beh\" type=\"BehType\"/> </LNodeType> <LNodeType lnClass=\"MMXU\" id=\"qux\" desc=\"foo bar\"> <DO name=\"Beh\" type=\"BehType\"/> </LNodeType> <LNodeType lnClass=\"MMXU\" id=\"alpha\" desc=\"first node\"> <DO name=\"Beh\" type=\"BehType\"/> </LNodeType> <LNodeType lnClass=\"MMXU\" id=\"beta\" desc=\"second node\"> <DO name=\"Beh\" type=\"BehType\"/> </LNodeType> <LNodeType lnClass=\"MMXU\" id=\"gamma\" desc=\"third node\"> <DO name=\"Beh\" type=\"BehType\"/> </LNodeType> <LNodeType lnClass=\"MMXU\" id=\"delta\" desc=\"fourth node\"> <DO name=\"Beh\" type=\"BehType\"/> </LNodeType> <LNodeType lnClass=\"MMXU\" id=\"epsilon\" desc=\"fifth node\"> <DO name=\"Beh\" type=\"BehType\"/> </LNodeType> <LNodeType lnClass=\"MMXU\" id=\"zeta\" desc=\"sixth node\"> <DO name=\"Beh\" type=\"BehType\"/> </LNodeType> <LNodeType lnClass=\"MMXU\" id=\"eta\" desc=\"seventh node\"> <DO name=\"Beh\" type=\"BehType\"/> </LNodeType> <LNodeType lnClass=\"MMXU\" id=\"theta\" desc=\"eighth node\"> <DO name=\"Beh\" type=\"BehType\"/> </LNodeType> <LNodeType lnClass=\"MMXU\" id=\"iota\" desc=\"ninth node\"> <DO name=\"Beh\" type=\"BehType\"/> </LNodeType> <LNodeType lnClass=\"MMXU\" id=\"kappa\" desc=\"tenth node\"> <DO name=\"Beh\" type=\"BehType\"/> </LNodeType> </DataTypeTemplates> </SCL>`"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "mmxuSelection",
+          "declaration": {
+            "name": "mmxuSelection",
+            "module": "oscd-editor-template-update.testfiles.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "lln0Selection",
+          "declaration": {
+            "name": "lln0Selection",
+            "module": "oscd-editor-template-update.testfiles.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "mmxuExceptSelection",
+          "declaration": {
+            "name": "mmxuExceptSelection",
+            "module": "oscd-editor-template-update.testfiles.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "nsdSpeced",
+          "declaration": {
+            "name": "nsdSpeced",
+            "module": "oscd-editor-template-update.testfiles.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "extension",
+          "declaration": {
+            "name": "extension",
+            "module": "oscd-editor-template-update.testfiles.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "customDataObjectInvalidCDC",
+          "declaration": {
+            "name": "customDataObjectInvalidCDC",
+            "module": "oscd-editor-template-update.testfiles.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "testLNodeTypesXml",
+          "declaration": {
+            "name": "testLNodeTypesXml",
+            "module": "oscd-editor-template-update.testfiles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "oscd-editor-template-update.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "OscdEditorTempleteUpdate",
+          "members": [
+            {
+              "kind": "field",
+              "name": "scopedElements",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{ 'tree-grid': TreeGrid, 'md-filled-select': MdFilledSelect, 'md-select-option': MdSelectOption, 'md-fab': MdFab, 'md-icon': MdIcon, 'md-dialog': MdDialog, 'md-filled-button': MdFilledButton, 'md-outlined-button': MdOutlinedButton, 'md-circular-progress': MdCircularProgress, 'md-outlined-text-field': MdOutlinedTextField, 'add-data-object-dialog': AddDataObjectDialog, 'lnodetype-sidebar': LNodeTypeSidebar, }"
+            },
+            {
+              "kind": "field",
+              "name": "editor",
+              "type": {
+                "text": "Transactor<EditV2>"
+              },
+              "attribute": "editor"
+            },
+            {
+              "kind": "field",
+              "name": "doc",
+              "type": {
+                "text": "XMLDocument | undefined"
+              },
+              "attribute": "doc"
+            },
+            {
+              "kind": "field",
+              "name": "treeUI",
+              "type": {
+                "text": "TreeGrid"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "lNodeTypeUI",
+              "type": {
+                "text": "MdFilledSelect | undefined"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "warningDialog",
+              "type": {
+                "text": "MdDialog | undefined"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "choiceDialog",
+              "type": {
+                "text": "MdDialog | undefined"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "addDataObjectDialog",
+              "type": {
+                "text": "HTMLElement & {\n    show: () => void;\n    validateForm: () => boolean;\n  }"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "lnodeTypeDesc",
+              "type": {
+                "text": "MdOutlinedTextField"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "lNodeTypes",
+              "type": {
+                "text": "Element[]"
+              },
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "selectedLNodeType",
+              "type": {
+                "text": "Element | undefined"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "lNodeTypeSelection",
+              "type": {
+                "text": "TreeSelection | undefined"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "nsdSelection",
+              "type": {
+                "text": "TreeSelection | undefined"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "warningMsg",
+              "type": {
+                "text": "string"
+              },
+              "default": "''"
+            },
+            {
+              "kind": "field",
+              "name": "loading",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "fabLabel",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Update Logical Node Type'"
+            },
+            {
+              "kind": "field",
+              "name": "disableAddDataObjectButton",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true"
+            },
+            {
+              "kind": "method",
+              "name": "resetUI",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "full",
+                  "default": "false",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "openAddDataObjectDialog",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "showWarning",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "msg",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "closeWarningDialog",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "closeChoiceDialog",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "saveTemplates",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateLNodeTypeDescription",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "desc",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "proceedWithDataLoss",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleUpdateTemplate",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "onLNodeTypeSelect",
+              "return": {
+                "type": {
+                  "text": "Promise<void>"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "addDataObjectToTree",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "cdcType",
+                  "type": {
+                    "text": "(typeof cdClasses)[number]"
+                  }
+                },
+                {
+                  "name": "doName",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleAddDataObject",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "Promise<void>"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "renderWarning",
+              "return": {
+                "type": {
+                  "text": "TemplateResult"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderChoice",
+              "return": {
+                "type": {
+                  "text": "TemplateResult"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderFab",
+              "return": {
+                "type": {
+                  "text": "TemplateResult"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderLNodeTypeControls",
+              "return": {
+                "type": {
+                  "text": "TemplateResult"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "editor",
+              "type": {
+                "text": "Transactor<EditV2>"
+              },
+              "fieldName": "editor"
+            },
+            {
+              "name": "doc",
+              "type": {
+                "text": "XMLDocument | undefined"
+              },
+              "fieldName": "doc"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "ScopedElementsMixin",
+              "package": "@open-wc/scoped-elements/lit-element.js"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "OscdEditorTempleteUpdate",
+            "module": "oscd-editor-template-update.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/add-data-object-dialog.spec.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "add-data-object-dialog",
+          "declaration": {
+            "name": "AddDataObjectDialog",
+            "module": "/components/add-data-object-dialog.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/add-data-object-dialog.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "AddDataObjectDialog",
+          "members": [
+            {
+              "kind": "field",
+              "name": "scopedElements",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{ 'md-outlined-button': MdOutlinedButton, 'md-dialog': MdDialog, 'md-outlined-text-field': MdOutlinedTextField, 'md-text-button': MdTextButton, 'md-select-option': MdSelectOption, 'md-filled-select': MdFilledSelect, }"
+            },
+            {
+              "kind": "field",
+              "name": "cdClasses",
+              "type": {
+                "text": "string[]"
+              },
+              "default": "[]",
+              "attribute": "cdClasses"
+            },
+            {
+              "kind": "field",
+              "name": "open",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "errorText",
+              "type": {
+                "text": "string"
+              },
+              "default": "''"
+            },
+            {
+              "kind": "field",
+              "name": "createDOdialog",
+              "type": {
+                "text": "MdDialog"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "cdcType",
+              "type": {
+                "text": "MdFilledSelect"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "doName",
+              "type": {
+                "text": "MdOutlinedTextField"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "show"
+            },
+            {
+              "kind": "method",
+              "name": "close"
+            },
+            {
+              "kind": "method",
+              "name": "validateForm",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "onAddDataObjectSubmit",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "resetErrorText",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "name": "add-data-object",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "cdClasses",
+              "type": {
+                "text": "string[]"
+              },
+              "default": "[]",
+              "fieldName": "cdClasses"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "ScopedElementsMixin",
+              "package": "@open-wc/scoped-elements/lit-element.js"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "add-data-object-dialog",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AddDataObjectDialog",
+          "declaration": {
+            "name": "AddDataObjectDialog",
+            "module": "components/add-data-object-dialog.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "AddDataObjectDialog",
+            "module": "components/add-data-object-dialog.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/lnodetype-sidebar.spec.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "lnodetype-sidebar",
+          "declaration": {
+            "name": "LNodeTypeSidebar",
+            "module": "/components/lnodetype-sidebar.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/lnodetype-sidebar.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "LNodeTypeSidebar",
+          "members": [
+            {
+              "kind": "field",
+              "name": "scopedElements",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{ 'md-outlined-button': MdOutlinedButton, 'md-outlined-textfield': MdOutlinedTextField, 'md-list': MdList, 'md-list-item': MdListItem, }"
+            },
+            {
+              "kind": "field",
+              "name": "lNodeTypes",
+              "type": {
+                "text": "Element[]"
+              },
+              "default": "[]",
+              "attribute": "lNodeTypes"
+            },
+            {
+              "kind": "field",
+              "name": "selectedId",
+              "type": {
+                "text": "string | undefined"
+              },
+              "attribute": "selectedId"
+            },
+            {
+              "kind": "field",
+              "name": "filter",
+              "type": {
+                "text": "string"
+              },
+              "default": "''"
+            },
+            {
+              "kind": "field",
+              "name": "debounceTimer",
+              "type": {
+                "text": "number | undefined"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleInput",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "clearFilter",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleClick",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "id",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "filteredLNodeTypes",
+              "type": {
+                "text": "Element[]"
+              },
+              "readonly": true
+            }
+          ],
+          "events": [
+            {
+              "name": "lnodetype-select",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "lNodeTypes",
+              "type": {
+                "text": "Element[]"
+              },
+              "default": "[]",
+              "fieldName": "lNodeTypes"
+            },
+            {
+              "name": "selectedId",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "selectedId"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "ScopedElementsMixin",
+              "package": "@open-wc/scoped-elements/lit-element.js"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "lnodetype-sidebar",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "LNodeTypeSidebar",
+          "declaration": {
+            "name": "LNodeTypeSidebar",
+            "module": "components/lnodetype-sidebar.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "foundation/constants.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "cdClasses",
+          "type": {
+            "text": "[\n  'ACD',\n  'ACT',\n  'APC',\n  'ASG',\n  'BAC',\n  'BCR',\n  'BSC',\n  'CMV',\n  'DEL',\n  'DPC',\n  'DPL',\n  'HDEL',\n  'HMV',\n  'HST',\n  'HWYE',\n  'INC',\n  'INS',\n  'ISC',\n  'LPL',\n  'MV',\n  'ORG',\n  'ORS',\n  'SAV',\n  'SEC',\n  'SEQ',\n  'SPC',\n  'SPG',\n  'SPS',\n  'TCS',\n  'TSG',\n  'VSG',\n  'VSS',\n  'WYE',\n]"
+          },
+          "default": "[ 'ACD', 'ACT', 'APC', 'ASG', 'BAC', 'BCR', 'BSC', 'CMV', 'DEL', 'DPC', 'DPL', 'HDEL', 'HMV', 'HST', 'HWYE', 'INC', 'INS', 'ISC', 'LPL', 'MV', 'ORG', 'ORS', 'SAV', 'SEC', 'SEQ', 'SPC', 'SPG', 'SPS', 'TCS', 'TSG', 'VSG', 'VSS', 'WYE', ]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "cdClasses",
+          "declaration": {
+            "name": "cdClasses",
+            "module": "foundation/constants.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "foundation/tree.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "buildLNodeTree",
+          "return": {
+            "type": {
+              "text": "{ tree: LNodeDescription | undefined; unsupportedDOs: string[] }"
+            }
+          },
+          "parameters": [
+            {
+              "name": "selectedLNodeTypeClass",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "lNodeType",
+              "type": {
+                "text": "Element"
+              }
+            },
+            {
+              "name": "doc",
+              "type": {
+                "text": "XMLDocument"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "buildLNodeTree",
+          "declaration": {
+            "name": "buildLNodeTree",
+            "module": "foundation/tree.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "foundation/utils.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "getLNodeTypes",
+          "return": {
+            "type": {
+              "text": "Element[]"
+            }
+          },
+          "parameters": [
+            {
+              "name": "doc",
+              "type": {
+                "text": "XMLDocument | undefined"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "getSelectedLNodeType",
+          "return": {
+            "type": {
+              "text": "Element | undefined"
+            }
+          },
+          "parameters": [
+            {
+              "name": "doc",
+              "type": {
+                "text": "XMLDocument"
+              }
+            },
+            {
+              "name": "selected",
+              "type": {
+                "text": "string"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "isLNodeTypeReferenced",
+          "return": {
+            "type": {
+              "text": "boolean"
+            }
+          },
+          "parameters": [
+            {
+              "name": "doc",
+              "type": {
+                "text": "XMLDocument"
+              }
+            },
+            {
+              "name": "selectedLNodeTypeID",
+              "type": {
+                "text": "string | null"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "filterSelection",
+          "return": {
+            "type": {
+              "text": "TreeSelection"
+            }
+          },
+          "parameters": [
+            {
+              "name": "tree",
+              "type": {
+                "text": "Tree"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "text": "TreeSelection"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "getLNodeTypes",
+          "declaration": {
+            "name": "getLNodeTypes",
+            "module": "foundation/utils.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "getSelectedLNodeType",
+          "declaration": {
+            "name": "getSelectedLNodeType",
+            "module": "foundation/utils.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "isLNodeTypeReferenced",
+          "declaration": {
+            "name": "isLNodeTypeReferenced",
+            "module": "foundation/utils.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "filterSelection",
+          "declaration": {
+            "name": "filterSelection",
+            "module": "foundation/utils.ts"
+          }
+        }
+      ]
+    }
+  ]
+}

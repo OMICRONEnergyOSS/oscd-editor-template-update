@@ -1,4 +1,5 @@
-/* eslint-disable no-unused-expressions */
+/* eslint-disable @typescript-eslint/no-unused-expressions */
+
 import { fixture, expect, html, oneEvent } from '@open-wc/testing';
 import { AddDataObjectDialog } from './add-data-object-dialog.js';
 
@@ -12,7 +13,7 @@ describe('AddDataObjectDialog', () => {
     dialog = await fixture(
       html`<add-data-object-dialog
         .cdClasses=${cdClasses}
-      ></add-data-object-dialog>`
+      ></add-data-object-dialog>`,
     );
     document.body.prepend(dialog);
   });
@@ -38,7 +39,7 @@ describe('AddDataObjectDialog', () => {
     expect(dialog.doName.error).to.be.false;
     const form = dialog.shadowRoot!.querySelector('form')!;
     form.dispatchEvent(
-      new Event('submit', { bubbles: true, cancelable: true })
+      new Event('submit', { bubbles: true, cancelable: true }),
     );
     await dialog.updateComplete;
     expect(dialog.cdcType.error).to.be.true;
@@ -55,7 +56,7 @@ describe('AddDataObjectDialog', () => {
       dialog
         .shadowRoot!.querySelector('form')!
         .dispatchEvent(
-          new Event('submit', { bubbles: true, cancelable: true })
+          new Event('submit', { bubbles: true, cancelable: true }),
         );
     });
     const event = await oneEvent(dialog, 'add-data-object');

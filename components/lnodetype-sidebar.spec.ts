@@ -1,6 +1,6 @@
 import { expect, fixture, html } from '@open-wc/testing';
 import { LNodeTypeSidebar } from './lnodetype-sidebar.js';
-import { testLNodeTypesXml } from '../scl-template-update.testfiles.js';
+import { testLNodeTypesXml } from '../oscd-editor-template-update.testfiles.js';
 import { getLNodeTypes } from '../foundation/utils.js';
 
 window.customElements.define('lnodetype-sidebar', LNodeTypeSidebar);
@@ -12,14 +12,14 @@ describe('LNodeTypeSidebar filtering', () => {
   beforeEach(async () => {
     const doc = new DOMParser().parseFromString(
       testLNodeTypesXml,
-      'application/xml'
+      'application/xml',
     );
     nodes = getLNodeTypes(doc);
     sidebar = await fixture(
       html`<lnodetype-sidebar
         .lNodeTypes=${nodes}
-        .selectedId=""
-      ></lnodetype-sidebar>`
+        selectedId=""
+      ></lnodetype-sidebar>`,
     );
   });
 

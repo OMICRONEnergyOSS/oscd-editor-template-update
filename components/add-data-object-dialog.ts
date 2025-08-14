@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { LitElement, html, css } from 'lit';
 import { property, state, query } from 'lit/decorators.js';
 import { ScopedElementsMixin } from '@open-wc/scoped-elements/lit-element.js';
@@ -102,7 +101,9 @@ export class AddDataObjectDialog extends ScopedElementsMixin(LitElement) {
 
   private onAddDataObjectSubmit(e: Event) {
     e.preventDefault();
-    if (!this.validateForm()) return;
+    if (!this.validateForm()) {
+      return;
+    }
     const cdcType = this.cdcType.value;
     const doName = this.doName.value;
     this.dispatchEvent(
@@ -110,7 +111,7 @@ export class AddDataObjectDialog extends ScopedElementsMixin(LitElement) {
         detail: { cdcType, doName },
         bubbles: true,
         composed: true,
-      })
+      }),
     );
     this.close();
   }
@@ -147,7 +148,7 @@ export class AddDataObjectDialog extends ScopedElementsMixin(LitElement) {
               cdClass =>
                 html`<md-select-option value=${cdClass}
                   >${cdClass}</md-select-option
-                >`
+                >`,
             )}
           </md-filled-select>
           <md-outlined-text-field

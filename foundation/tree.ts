@@ -3,7 +3,7 @@ import { cdClasses } from './constants.js';
 
 function getCDCForDOType(doc: XMLDocument, doType: string): string | undefined {
   const doTypeElement = doc.querySelector(
-    `:root > DataTypeTemplates > DOType[id="${doType}"]`
+    `:root > DataTypeTemplates > DOType[id="${doType}"]`,
   );
   return doTypeElement?.getAttribute('cdc') ?? undefined;
 }
@@ -31,11 +31,13 @@ function buildDataObject(doName: string, cdc: string) {
  * in the tree, even if they are not part of the NSD definition.
  */
 function mergeUserDOsIntoTree(
-  tree: any,
+  tree: LNodeDescription,
   lNodeType: Element,
-  doc: XMLDocument
+  doc: XMLDocument,
 ): { tree: LNodeDescription; unsupportedDOs: string[] } {
-  if (!lNodeType || !doc) return { tree, unsupportedDOs: [] };
+  if (!lNodeType || !doc) {
+    return { tree, unsupportedDOs: [] };
+  }
   const result = { ...tree };
   const doElements = Array.from(lNodeType.querySelectorAll(':scope > DO'));
   const standardDONames = tree ? Object.keys(tree) : [];
@@ -44,7 +46,9 @@ function mergeUserDOsIntoTree(
   doElements.forEach(doEl => {
     const doName = doEl.getAttribute('name');
     const doType = doEl.getAttribute('type');
-    if (!doName || !doType) return;
+    if (!doName || !doType) {
+      return;
+    }
     if (!standardDONames.includes(doName)) {
       const cdc = getCDCForDOType(doc, doType);
       if (isSupportedCDC(cdc)) {
@@ -60,9 +64,11 @@ function mergeUserDOsIntoTree(
 export function buildLNodeTree(
   selectedLNodeTypeClass: string,
   lNodeType: Element,
-  doc: XMLDocument
-): { tree: any; unsupportedDOs: string[] } {
-  const tree = nsdToJson(selectedLNodeTypeClass) as any;
-  if (!tree) return { tree: undefined, unsupportedDOs: [] };
+  doc: XMLDocument,
+): { tree: LNodeDescription | undefined; unsupportedDOs: string[] } {
+  const tree = nsdToJson(selectedLNodeTypeClass) as LNodeDescription;
+  if (!tree) {
+    return { tree: undefined, unsupportedDOs: [] };
+  }
   return mergeUserDOsIntoTree(tree, lNodeType, doc);
 }

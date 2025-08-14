@@ -1,17 +1,14 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { LitElement, html, css, TemplateResult } from 'lit';
 import { state, query, property } from 'lit/decorators.js';
 
 import { ScopedElementsMixin } from '@open-wc/scoped-elements/lit-element.js';
 
-import { newEditEvent } from '@openenergytools/open-scd-core';
-
 import {
   insertSelectedLNodeType,
   lNodeTypeToSelection,
   nsdToJson,
-  removeDataType,
   LNodeDescription,
+  removeDataType,
 } from '@openenergytools/scl-lib';
 
 import { TreeGrid, TreeSelection } from '@openenergytools/tree-grid';
@@ -36,9 +33,10 @@ import {
   isLNodeTypeReferenced,
   filterSelection,
 } from './foundation/utils.js';
+import { EditV2, Transactor } from '@omicronenergy/oscd-api';
 
-export default class NsdTemplateUpdated extends ScopedElementsMixin(
-  LitElement
+export default class OscdEditorTempleteUpdate extends ScopedElementsMixin(
+  LitElement,
 ) {
   static scopedElements = {
     'tree-grid': TreeGrid,
@@ -55,7 +53,10 @@ export default class NsdTemplateUpdated extends ScopedElementsMixin(
     'lnodetype-sidebar': LNodeTypeSidebar,
   };
 
-  @property()
+  @property({ type: Object })
+  editor!: Transactor<EditV2>;
+
+  @property({ type: Object })
   doc?: XMLDocument;
 
   @query('tree-grid')
@@ -144,7 +145,9 @@ export default class NsdTemplateUpdated extends ScopedElementsMixin(
   }
 
   private async saveTemplates() {
-    if (!this.doc || !this.nsdSelection) return;
+    if (!this.doc || !this.nsdSelection) {
+      return;
+    }
 
     const lnClass = this.selectedLNodeType!.getAttribute('lnClass')!;
     const lnID = this.selectedLNodeType!.getAttribute('id')!;
@@ -165,20 +168,18 @@ export default class NsdTemplateUpdated extends ScopedElementsMixin(
       return;
     }
 
-    this.dispatchEvent(newEditEvent(inserts));
+    this.editor.commit(inserts);
     await this.updateComplete;
 
     const remove = removeDataType(
       { node: this.selectedLNodeType! },
-      { force: true }
+      { force: true },
     );
-    this.dispatchEvent(
-      newEditEvent(remove, { squash: true, title: `Update ${lnID}` })
-    );
+    this.editor.commit(remove, { squash: true, title: `Update ${lnID}` });
     this.lNodeTypes = getLNodeTypes(this.doc);
 
     const updatedLNodeType = inserts.find(
-      insert => (insert.node as Element).tagName === 'LNodeType'
+      insert => (insert.node as Element).tagName === 'LNodeType',
     )?.node as Element;
 
     if (updatedLNodeType) {
@@ -199,15 +200,13 @@ export default class NsdTemplateUpdated extends ScopedElementsMixin(
   }
 
   private updateLNodeTypeDescription(desc: string): void {
-    this.dispatchEvent(
-      newEditEvent([
-        {
-          element: this.selectedLNodeType!,
-          attributes: { desc },
-          attributesNS: {},
-        },
-      ])
-    );
+    this.editor.commit([
+      {
+        element: this.selectedLNodeType!,
+        attributes: { desc },
+        attributesNS: {},
+      },
+    ]);
   }
 
   private proceedWithDataLoss() {
@@ -216,11 +215,13 @@ export default class NsdTemplateUpdated extends ScopedElementsMixin(
   }
 
   private handleUpdateTemplate(): void {
-    if (!this.doc || !this.selectedLNodeType) return;
+    if (!this.doc || !this.selectedLNodeType) {
+      return;
+    }
 
     this.nsdSelection = filterSelection(
       this.treeUI.tree,
-      this.treeUI.selection
+      this.treeUI.selection,
     );
 
     if (
@@ -257,7 +258,7 @@ export default class NsdTemplateUpdated extends ScopedElementsMixin(
     const { tree, unsupportedDOs } = buildLNodeTree(
       selectedLNodeTypeClass,
       this.selectedLNodeType,
-      this.doc!
+      this.doc!,
     );
 
     if (!tree) {
@@ -268,7 +269,7 @@ export default class NsdTemplateUpdated extends ScopedElementsMixin(
 
     if (unsupportedDOs.length > 0) {
       this.showWarning(
-        'The selected logical node type contains user-defined data objects with unsupported CDCs.'
+        'The selected logical node type contains user-defined data objects with unsupported CDCs.',
       );
     }
 
@@ -284,15 +285,16 @@ export default class NsdTemplateUpdated extends ScopedElementsMixin(
     await this.updateComplete;
     this.loading = false;
 
-    if (isReferenced)
+    if (isReferenced) {
       this.showWarning(
-        'The selected logical node type is referenced. This plugin should be used during specification only.'
+        'The selected logical node type is referenced. This plugin should be used during specification only.',
       );
+    }
   }
 
   private addDataObjectToTree(
     cdcType: (typeof cdClasses)[number],
-    doName: string
+    doName: string,
   ): void {
     const cdcChildren = nsdToJson(cdcType);
     const newDataObject = {
@@ -312,12 +314,13 @@ export default class NsdTemplateUpdated extends ScopedElementsMixin(
     e.preventDefault();
     const { cdcType, doName } = e.detail;
 
-    if (!this.addDataObjectDialog?.validateForm()) return;
+    if (!this.addDataObjectDialog?.validateForm()) {
+      return;
+    }
 
     this.addDataObjectToTree(cdcType as (typeof cdClasses)[number], doName);
   }
 
-  // eslint-disable-next-line class-methods-use-this
   renderWarning(): TemplateResult {
     return html`<md-dialog id="dialog-warning">
       <div slot="headline">Warning</div>
@@ -392,7 +395,9 @@ export default class NsdTemplateUpdated extends ScopedElementsMixin(
   }
 
   render() {
-    if (!this.doc) return html`<h1>Load SCL document first!</h1>`;
+    if (!this.doc) {
+      return html`<h1>Load SCL document first!</h1>`;
+    }
 
     return html`<div class="container">
         <div class="main-content">
@@ -485,7 +490,7 @@ export default class NsdTemplateUpdated extends ScopedElementsMixin(
       z-index: 1;
       right: 0;
       overflow: hidden;
-      background: #fcf6e5;
+      background-color: var(--oscd-base3, #fcf6e5);
     }
 
     .update-lnode-type {

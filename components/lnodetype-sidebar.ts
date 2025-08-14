@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { LitElement, html, css } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import { ScopedElementsMixin } from '@open-wc/scoped-elements/lit-element.js';
@@ -45,12 +44,14 @@ export class LNodeTypeSidebar extends ScopedElementsMixin(LitElement) {
         detail: { id },
         bubbles: true,
         composed: true,
-      })
+      }),
     );
   }
 
   get filteredLNodeTypes(): Element[] {
-    if (!this.filter.trim()) return this.lNodeTypes;
+    if (!this.filter.trim()) {
+      return this.lNodeTypes;
+    }
     // If the filter includes words separated by &, treat as a single AND group (e.g. 'a & b', 'a&b', 'a &b', 'a& b').
     // Otherwise, split on comma or space (unless adjacent to &), so 'a b' and 'a,b' are separate OR groups.
     let groups: string[][] = [];
@@ -69,18 +70,20 @@ export class LNodeTypeSidebar extends ScopedElementsMixin(LitElement) {
           group
             .replace(/\s*&\s*/g, '&')
             .split('&')
-            .filter(Boolean)
+            .filter(Boolean),
         )
         .filter(group => group.length > 0);
     }
 
-    if (groups.length === 0) return this.lNodeTypes;
+    if (groups.length === 0) {
+      return this.lNodeTypes;
+    }
 
     return this.lNodeTypes.filter(ln => {
       const id = ln.getAttribute('id')?.toLowerCase() || '';
       const desc = ln.getAttribute('desc')?.toLowerCase() || '';
       return groups.some(group =>
-        group.every(term => id.includes(term) || desc.includes(term))
+        group.every(term => id.includes(term) || desc.includes(term)),
       );
     });
   }
@@ -130,7 +133,9 @@ export class LNodeTypeSidebar extends ScopedElementsMixin(LitElement) {
     // Scroll md-list to top when lNodeTypes changes
     if (changedProperties.has('lNodeTypes')) {
       const mdList = this.renderRoot.querySelector('md-list');
-      if (mdList) mdList.scrollTop = 0;
+      if (mdList) {
+        mdList.scrollTop = 0;
+      }
     }
   }
 
@@ -142,7 +147,7 @@ export class LNodeTypeSidebar extends ScopedElementsMixin(LitElement) {
       min-height: 0;
       padding: 1rem;
       overflow: hidden;
-      background-color: #fcf6e5;
+      background-color: var(--oscd-base3, #fcf6e5);
     }
     md-list {
       min-height: 0;

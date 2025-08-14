@@ -422,7 +422,7 @@ export const mmxuExceptSelection = {
 
 export const nsdSpeced = `<?xml version="1.0" encoding="UTF-8"?>
 <SCL xmlns="http://www.iec.ch/61850/2003/SCL" version="2007" revision="B" release="4">
-	<Header id="nsdonly"/>
+	<Header id="nsdSpeced"/>
 	<DataTypeTemplates>
 		<LNodeType lnClass="MMXU" id="MMXU$oscd$_c53e78191fabefa3">
 			<DO name="Beh" type="Beh$oscd$_c6ed035c8137b35a"/>
@@ -602,7 +602,7 @@ export const nsdSpeced = `<?xml version="1.0" encoding="UTF-8"?>
 
 export const extension = `<?xml version="1.0" encoding="UTF-8"?>
 <SCL xmlns="http://www.iec.ch/61850/2003/SCL" version="2007" revision="B" release="4">
-	<Header id="nsdonly"/>
+	<Header id="extension"/>
   <Substation name="AA1">
     <LNode lnType="LLN0$oscd$_85c7ffbe25d80e63"/>
   </Substation>
@@ -787,7 +787,7 @@ export const extension = `<?xml version="1.0" encoding="UTF-8"?>
 
 export const customDataObjectInvalidCDC = `<?xml version="1.0" encoding="UTF-8"?>
 <SCL xmlns="http://www.iec.ch/61850/2003/SCL" version="2007" revision="B" release="4">
-	<Header id="nsdonly"/>
+	<Header id="customDataObjectInvalidCDC"/>
   <Substation name="AA1">
     <LNode lnType="LLN0$oscd$_85c7ffbe25d80e63"/>
   </Substation>
