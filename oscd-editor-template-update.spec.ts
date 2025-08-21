@@ -12,39 +12,28 @@ import {
 } from './oscd-editor-template-update.testfiles.js';
 import './oscd-editor-template-update.js';
 import OscdEditorTemplateUpdate from './oscd-editor-template-update.js';
-import { Insert, Remove } from '@omicronenergy/oscd-api';
+import { EditEventV2, Insert, Remove } from '@omicronenergy/oscd-api';
 import { TreeGrid } from '@openenergytools/tree-grid';
 import { XMLEditor } from '@omicronenergy/oscd-editor';
-import sinon from 'sinon';
-
-type EditorWithSpy = XMLEditor & {
-  commit: sinon.SinonSpy;
-  undo: SinonSpy;
-  redo: SinonSpy;
-  subscribe: SinonSpy;
-};
-
-const newEditorWithSpies = () => {
-  const editor = new XMLEditor();
-  spy(editor, 'commit');
-  spy(editor, 'undo');
-  spy(editor, 'redo');
-  spy(editor, 'subscribe');
-  return editor as EditorWithSpy;
-};
 
 customElements.define('oscd-editor-template-update', OscdEditorTemplateUpdate);
 
 describe('NsdTemplateUpdater', () => {
   let plugin: OscdEditorTemplateUpdate;
-  let editor: EditorWithSpy;
+  let editEventListener: SinonSpy;
+  const editor = new XMLEditor();
   beforeEach(async () => {
-    editor = newEditorWithSpies();
     plugin = await fixture(
-      html`<oscd-editor-template-update
-        .editor=${editor}
-      ></oscd-editor-template-update>`,
+      html`<oscd-editor-template-update></oscd-editor-template-update>`,
     );
+
+    editEventListener = spy();
+    plugin.addEventListener('oscd-edit-v2', (event: EditEventV2) => {
+      const { edit, title, squash } = event.detail;
+      editor.commit(edit, { title, squash });
+      editEventListener(event);
+    });
+
     await new Promise(res => {
       setTimeout(res, 200);
     });
@@ -79,13 +68,12 @@ describe('NsdTemplateUpdater', () => {
       });
 
       plugin.treeUI.selection = mmxuSelection;
-      await Promise.all([plugin.updateComplete, plugin.treeUI.updateComplete]);
 
       (plugin.shadowRoot?.querySelector('md-fab') as HTMLElement).click();
       await plugin.updateComplete;
 
-      const inserts = editor.commit.args[0][0];
-      const removes = editor.commit.args[1][0];
+      const inserts = editEventListener.args[0][0].detail.edit;
+      const removes = editEventListener.args[1][0].detail.edit;
       expect(inserts).to.have.lengthOf(5);
       expect(removes).to.have.lengthOf(2);
 
@@ -127,8 +115,8 @@ describe('NsdTemplateUpdater', () => {
         setTimeout(res, 200);
       });
 
-      const inserts = editor.commit.args[0][0];
-      const removes = editor.commit.args[1][0];
+      const inserts = editEventListener.args[0][0].detail.edit;
+      const removes = editEventListener.args[1][0].detail.edit;
 
       expect(inserts).to.have.lengthOf(9);
       expect(removes).to.have.lengthOf(5);
@@ -184,14 +172,14 @@ describe('NsdTemplateUpdater', () => {
       } as CustomEvent;
       await plugin.onLNodeTypeSelect(event);
 
-      expect(editor.commit.callCount, 'call count before').to.equal(0);
+      expect(editEventListener.callCount, 'call count before').to.equal(0);
 
       (plugin.shadowRoot?.querySelector('md-fab') as HTMLElement).click();
       await new Promise(res => {
         setTimeout(res, 200);
       });
 
-      expect(editor.commit.callCount, 'call count after').to.equal(0);
+      expect(editEventListener.callCount, 'call count after').to.equal(0);
     });
 
     it('shows the data loss dialog if (part of) selection is not in tree', async () => {
@@ -265,8 +253,8 @@ describe('NsdTemplateUpdater', () => {
       ).click();
       await plugin.updateComplete;
 
-      const inserts = editor.commit.args[0][0];
-      const removes = editor.commit.args[1][0];
+      const inserts = editEventListener.args[0][0].detail.edit;
+      const removes = editEventListener.args[1][0].detail.edit;
 
       expect(inserts).to.have.lengthOf(5);
       expect(removes).to.have.lengthOf(1);
@@ -300,7 +288,7 @@ describe('NsdTemplateUpdater', () => {
 
       (plugin.shadowRoot?.querySelector('md-fab') as HTMLElement).click();
       await plugin.updateComplete;
-      expect(editor.commit).to.have.been.called;
+      expect(editEventListener).to.have.been.called;
     });
   });
 

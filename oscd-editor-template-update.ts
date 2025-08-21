@@ -33,7 +33,7 @@ import {
   isLNodeTypeReferenced,
   filterSelection,
 } from './foundation/utils.js';
-import { EditV2, Transactor } from '@omicronenergy/oscd-api';
+import { newEditEventV2 } from '@omicronenergy/oscd-api/utils.js';
 
 export default class OscdEditorTempleteUpdate extends ScopedElementsMixin(
   LitElement,
@@ -52,9 +52,6 @@ export default class OscdEditorTempleteUpdate extends ScopedElementsMixin(
     'add-data-object-dialog': AddDataObjectDialog,
     'lnodetype-sidebar': LNodeTypeSidebar,
   };
-
-  @property({ type: Object })
-  editor!: Transactor<EditV2>;
 
   @property({ type: Object })
   doc?: XMLDocument;
@@ -168,14 +165,16 @@ export default class OscdEditorTempleteUpdate extends ScopedElementsMixin(
       return;
     }
 
-    this.editor.commit(inserts);
+    this.dispatchEvent(newEditEventV2(inserts));
     await this.updateComplete;
 
     const remove = removeDataType(
       { node: this.selectedLNodeType! },
       { force: true },
     );
-    this.editor.commit(remove, { squash: true, title: `Update ${lnID}` });
+    this.dispatchEvent(
+      newEditEventV2(remove, { squash: true, title: `Update ${lnID}` }),
+    );
     this.lNodeTypes = getLNodeTypes(this.doc);
 
     const updatedLNodeType = inserts.find(
@@ -200,13 +199,15 @@ export default class OscdEditorTempleteUpdate extends ScopedElementsMixin(
   }
 
   private updateLNodeTypeDescription(desc: string): void {
-    this.editor.commit([
-      {
-        element: this.selectedLNodeType!,
-        attributes: { desc },
-        attributesNS: {},
-      },
-    ]);
+    this.dispatchEvent(
+      newEditEventV2([
+        {
+          element: this.selectedLNodeType!,
+          attributes: { desc },
+          attributesNS: {},
+        },
+      ]),
+    );
   }
 
   private proceedWithDataLoss() {
