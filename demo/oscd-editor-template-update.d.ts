@@ -11,7 +11,6 @@ import { MdCircularProgress } from '@scopedelement/material-web/progress/circula
 import { MdOutlinedTextField } from '@scopedelement/material-web/textfield/MdOutlinedTextField.js';
 import { AddDataObjectDialog } from './components/add-data-object-dialog.js';
 import { LNodeTypeSidebar } from './components/lnodetype-sidebar.js';
-import { EditV2, Transactor } from '@omicronenergy/oscd-api';
 declare const OscdEditorTempleteUpdate_base: typeof LitElement & import("@open-wc/scoped-elements/lit-element.js").ScopedElementsHostConstructor;
 export default class OscdEditorTempleteUpdate extends OscdEditorTempleteUpdate_base {
     static scopedElements: {
@@ -28,7 +27,6 @@ export default class OscdEditorTempleteUpdate extends OscdEditorTempleteUpdate_b
         'add-data-object-dialog': typeof AddDataObjectDialog;
         'lnodetype-sidebar': typeof LNodeTypeSidebar;
     };
-    editor: Transactor<EditV2>;
     doc?: XMLDocument;
     treeUI: TreeGrid;
     lNodeTypeUI?: MdFilledSelect;

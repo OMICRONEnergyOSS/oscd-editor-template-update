@@ -37881,6 +37881,14 @@ function filterSelection(tree, selection) {
     return filteredTree;
 }
 
+function newEditEventV2(edit, options) {
+    return new CustomEvent('oscd-edit-v2', {
+        composed: true,
+        bubbles: true,
+        detail: { ...options, edit },
+    });
+}
+
 class OscdEditorTempleteUpdate extends ScopedElementsMixin(i$3) {
     constructor() {
         super(...arguments);
@@ -37944,10 +37952,10 @@ class OscdEditorTempleteUpdate extends ScopedElementsMixin(i$3) {
             }
             return;
         }
-        this.editor.commit(inserts);
+        this.dispatchEvent(newEditEventV2(inserts));
         await this.updateComplete;
         const remove = removeDataType({ node: this.selectedLNodeType }, { force: true });
-        this.editor.commit(remove, { squash: true, title: `Update ${lnID}` });
+        this.dispatchEvent(newEditEventV2(remove, { squash: true, title: `Update ${lnID}` }));
         this.lNodeTypes = getLNodeTypes(this.doc);
         const updatedLNodeType = inserts.find(insert => insert.node.tagName === 'LNodeType')?.node;
         if (updatedLNodeType) {
@@ -37964,13 +37972,13 @@ class OscdEditorTempleteUpdate extends ScopedElementsMixin(i$3) {
         }
     }
     updateLNodeTypeDescription(desc) {
-        this.editor.commit([
+        this.dispatchEvent(newEditEventV2([
             {
                 element: this.selectedLNodeType,
                 attributes: { desc },
                 attributesNS: {},
             },
-        ]);
+        ]));
     }
     proceedWithDataLoss() {
         this.closeChoiceDialog();
@@ -38246,9 +38254,6 @@ OscdEditorTempleteUpdate.styles = i$6 `
       align-items: stretch;
     }
   `;
-__decorate([
-    n$5({ type: Object })
-], OscdEditorTempleteUpdate.prototype, "editor", void 0);
 __decorate([
     n$5({ type: Object })
 ], OscdEditorTempleteUpdate.prototype, "doc", void 0);
